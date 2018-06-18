@@ -37,7 +37,9 @@ function populateData() {
     for (var i = 0; i < len; i++) {
      
         var username = getUsername(posts[i].userId);
-        htmldata += `<section id="section_${i}"><h5>${username}</h5><h6>${posts[i].title}</h6><p>${posts[i].body}</p>
+        htmldata += `<section id="section_${i}"><h2>username</h2>
+        <input type="button" value = "edit" id="edit_${i}" onclick="editdetails(this.id);"/>
+        <h3>${username}</h3><h4>Title:${posts[i].title}</h4><p><b>Description:</b>${posts[i].body}</p>
         <button id="like_${i}" onclick="likeit(this.id)">Like</button>
         <button id="delete_${i}" onclick="deleteit(this.id)">Delete</button>
         <button id="comment_${i}" onclick="getcomments(this.id)">Comments</button><div class="coms"id="comments_${i}" ></div></section>`;
@@ -69,7 +71,7 @@ function getcomments(id){
     var htm = "";
     for(var i=0;i<comments.length;i++){
         if(comments[i].postId == (post_id+1)){
-            var str = `${comments[i].name}: ${comments[i].body}`;
+            var str = `${comments[i].name}: ${comments[i].body} `;
             commentsArr.push(str);
         }
     }
